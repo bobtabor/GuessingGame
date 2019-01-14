@@ -12,16 +12,20 @@ namespace GuessingGame
             string response;
             response = Console.ReadLine();
 
-            string correctAnswer = "7";
+            int correctAnswer = 7;
+            // int userAnswer = int.Parse(response);
+            
+            if (int.TryParse(response, out int userAnswer)) {
 
-            Console.WriteLine("You responded: " + response);
+                if (userAnswer == correctAnswer) {
+                    Console.WriteLine("You win!");    
+                } else {
+                    Console.WriteLine("You lose!");
+                }
 
-            if (response == correctAnswer) {
-                Console.WriteLine("You win!");    
             } else {
-                Console.WriteLine("You lose!");
+                Console.WriteLine("Cannot work with your response.  You lose!");
             }
-
             
         }
     }
