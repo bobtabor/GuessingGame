@@ -12,15 +12,17 @@ namespace GuessingGame
             string response;
             response = Console.ReadLine();
 
-            int correctAnswer = 7;
-            // int userAnswer = int.Parse(response);
+            Random random;
+            random = new Random();
+            int correctAnswer = random.Next(1, 11);
             
             if (int.TryParse(response, out int userAnswer)) {
 
                 if (userAnswer == correctAnswer) {
                     Console.WriteLine("You win!");    
                 } else {
-                    Console.WriteLine("You lose!");
+                    // Console.WriteLine("The correct answer is: " + correctAnswer.ToString() + ".  You lose!");
+                    Console.WriteLine($"The correct answer is: {correctAnswer}.  You lose!");
                 }
 
             } else {
