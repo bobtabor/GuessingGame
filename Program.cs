@@ -12,9 +12,17 @@ namespace GuessingGame
             string response;
             response = Console.ReadLine();
 
+            string correctAnswer = "7";
+
             Console.WriteLine("You responded: " + response);
 
-            Console.WriteLine("You win!");
+            if (response == correctAnswer) {
+                Console.WriteLine("You win!");    
+            } else {
+                Console.WriteLine("You lose!");
+            }
+
+            
         }
     }
 }
