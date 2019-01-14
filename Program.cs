@@ -7,28 +7,35 @@ namespace GuessingGame
         static void Main(string[] args)
         {
             Console.WriteLine("I'm thinking of a number between 1 and 10.");
-            Console.Write("What is your guess? ");
-
-            string response;
-            response = Console.ReadLine();
 
             Random random;
             random = new Random();
             int correctAnswer = random.Next(1, 11);
-            
-            if (int.TryParse(response, out int userAnswer)) {
 
-                if (userAnswer == correctAnswer) {
-                    Console.WriteLine("You win!");    
+            int counter = 0;
+
+            do {
+
+                // counter = counter + 1;
+                counter++;
+
+                Console.Write($"Guess #{counter}? ");
+                string response;
+                response = Console.ReadLine();
+
+                if (int.TryParse(response, out int userAnswer)) {
+                    if (userAnswer == correctAnswer) {
+                        Console.WriteLine($"You win!  It took you {counter} guesses.");
+                        break;
+                    } else {
+                        Console.WriteLine("Nope.  Guess again!");
+                    }
                 } else {
-                    // Console.WriteLine("The correct answer is: " + correctAnswer.ToString() + ".  You lose!");
-                    Console.WriteLine($"The correct answer is: {correctAnswer}.  You lose!");
+                    Console.WriteLine("Cannot work with your response.  You lose!");
                 }
 
-            } else {
-                Console.WriteLine("Cannot work with your response.  You lose!");
-            }
-            
+            } while (true);
+
         }
     }
 }
