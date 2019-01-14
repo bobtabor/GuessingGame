@@ -8,7 +8,12 @@ namespace GuessingGame
         {
             Console.WriteLine("I'm thinking of a number between 1 and 10.");
             Console.Write("What is your guess? ");
-            Console.ReadLine();
+
+            string response;
+            response = Console.ReadLine();
+
+            Console.WriteLine("You responded: " + response);
+
             Console.WriteLine("You win!");
         }
     }
