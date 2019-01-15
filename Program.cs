@@ -27,8 +27,10 @@ namespace GuessingGame
                     if (userAnswer == correctAnswer) {
                         Console.WriteLine($"You win!  It took you {counter} guesses.");
                         break;
+                    } else if (userAnswer > correctAnswer) {
+                        Console.WriteLine("Guess was too high.  Try again!");
                     } else {
-                        Console.WriteLine("Nope.  Guess again!");
+                        Console.WriteLine("Guess was too low.  Try again.");
                     }
                 } else {
                     Console.WriteLine("Cannot work with your response.  You lose!");
