@@ -6,6 +6,7 @@ namespace GuessingGame
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             Console.WriteLine("I'm thinking of a number between 1 and 10.");
 
             Random random;
@@ -23,9 +24,16 @@ namespace GuessingGame
                 string response;
                 response = Console.ReadLine();
 
+                if (response.ToLower() == "q") {
+                    break;
+                }
+
                 if (int.TryParse(response, out int userAnswer)) {
                     if (userAnswer == correctAnswer) {
+                        Console.Beep();
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine($"You win!  It took you {counter} guesses.");
+                        Console.ResetColor();
                         break;
                     } else if (userAnswer > correctAnswer) {
                         Console.WriteLine("Guess was too high.  Try again!");
@@ -33,7 +41,7 @@ namespace GuessingGame
                         Console.WriteLine("Guess was too low.  Try again.");
                     }
                 } else {
-                    Console.WriteLine("Cannot work with your response.  You lose!");
+                    Console.WriteLine("Invalid response.  Type a number between 1 and 10!");
                 }
 
             } while (true);
